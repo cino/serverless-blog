@@ -4,6 +4,7 @@
   "description": "Backend/API & Infra for a Serverless Blog",
   "main": "jest.config.js",
   "scripts": {
+    "build": "tsc",
     "lint": "eslint lib/**/*.ts test/**/*.ts",
     "prepare": "husky install",
     "watch": "tsc -w",
