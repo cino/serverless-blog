@@ -18,7 +18,8 @@
         "dbaeumer.vscode-eslint",
         "eg2.vscode-npm-script",
         "EditorConfig.EditorConfig",
-        "amazonwebservices.aws-toolkit-vscode"
+        "amazonwebservices.aws-toolkit-vscode",
+        "Orta.vscode-jest"
     ],
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
     // "forwardPorts": [],
@@ -29,7 +30,8 @@
     "features": {
         "git": "latest",
         "github-cli": "latest",
-        "aws-cli": "latest"
+        "aws-cli": "latest",
+        "docker-in-docker": "latest"
     },
     "mounts": [
         "source=${env:HOME}${env:USERPROFILE}/.aws,target=/home/node/.aws,type=bind",

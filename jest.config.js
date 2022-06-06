@@ -14,7 +14,7 @@ module.exports = {
     testEnvironment: 'node',
     collectCoverage: true,
     collectCoverageFrom: [
-        '<rootDir>/dist/**/*.ts',
+        '<rootDir>/lib/**/*.ts',
     ],
     // Temp removed.
     // coverageThreshold: {

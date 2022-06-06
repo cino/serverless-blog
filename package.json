@@ -2,7 +2,7 @@
   "name": "serverless-blog",
   "version": "0.0.1",
   "description": "Backend/API & Infra for a Serverless Blog",
-  "main": "jest.config.js",
+  "main": "lib/main.ts",
   "scripts": {
     "build": "tsc",
     "lint": "eslint lib/**/*.ts test/**/*.ts",
