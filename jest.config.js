@@ -1,27 +1,28 @@
 module.exports = {
-    globals: {
-        'ts-jest': {
-            tsconfig: false,
-            isolatedModules: true,
-        },
+  globals: {
+    'ts-jest': {
+      tsconfig: false,
+      isolatedModules: true,
     },
-    testMatch: ['**/*.test.ts'],
-    transform: {
-        '^.+\\.tsx?$': '@swc/jest',
+  },
+  testMatch: ['**/*.test.ts'],
+  transform: {
+    '^.+\\.tsx?$': '@swc/jest',
+  },
+  verbose: true,
+  testTimeout: 90000,
+  testEnvironment: 'node',
+  collectCoverage: true,
+  collectCoverageFrom: [
+    '<rootDir>/lib/api/*.ts',
+    '<rootDir>/lib/infra/*.ts',
+    '<rootDir>/lib/*.ts',
+  ],
+  coverageThreshold: {
+    global: {
+      branches: 80,
+      functions: 100,
+      statements: 100,
     },
-    verbose: true,
-    testTimeout: 90000,
-    testEnvironment: 'node',
-    collectCoverage: true,
-    collectCoverageFrom: [
-        '<rootDir>/lib/**/*.ts',
-    ],
-    // Temp removed.
-    // coverageThreshold: {
-    //     global: {
-    //         branches: 75,
-    //         functions: 80,
-    //         statements: 80,
-    //     },
-    // },
+  },
 };

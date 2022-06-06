@@ -38,7 +38,6 @@ export class ServerlessBlogAdmin extends Construct {
     let viewerCertificate: ViewerCertificate | undefined = undefined;
 
     if (props?.hostedZone && props?.alias) {
-
       const certificate = new DnsValidatedCertificate(this, 'AdminAppCertificate', {
         domainName: props.alias,
         hostedZone: props.hostedZone,

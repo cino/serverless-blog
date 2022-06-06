@@ -72,3 +72,11 @@ jobs:
 
       - name: Build & Test
         run: cd lib/admin && npm run build
+  coverage:
+      permissions:
+        checks: write
+        pull-requests: write
+      runs-on: ubuntu-latest
+      steps:
+          - uses: actions/checkout@v1
+          - uses: ArtiomTr/jest-coverage-report-action@v2

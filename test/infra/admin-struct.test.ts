@@ -13,6 +13,10 @@ describe('Admin Stack', () => {
         domain: 'example.com',
       },
 
+      admin: {
+        alias: 'blog-admin.example.com',
+      },
+
       frontEnd: {
         alias: 'blog.example.com',
         source: Source.asset(path.join(__dirname, 'utils/html')),
