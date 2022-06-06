@@ -6,6 +6,6 @@
     "test/**/*.ts"
   ],
   "exclude": [
-    "lib/admin/*.ts",
+    "lib/admin/**/*.ts",
   ],
 }
