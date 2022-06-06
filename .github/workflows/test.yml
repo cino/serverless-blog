@@ -22,8 +22,8 @@ jobs:
       - name: Lint
         run: |
           npm run lint
-  test:
-    name: Test
+  test-infra:
+    name: Test Infra
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -34,7 +34,7 @@ jobs:
           node-version: 16
 
       - name: Install
-        run: npm ci
+        run: npm ci && cd lib/admin && npm ci
 
       - name: Build & Test
         run: |
