@@ -32,7 +32,7 @@ export class ServerlessBlogFront extends Construct {
 
     const frontBucket = new Bucket(this, 'FrontBucket', {
       websiteIndexDocument: 'index.html',
-      blockPublicAccess: props.alias ? BlockPublicAccess.BLOCK_ALL : undefined,
+      blockPublicAccess: BlockPublicAccess.BLOCK_ALL,
     });
     Tags.of(frontBucket).add('cdkTesting', 'frontBucket');
 
@@ -98,7 +98,7 @@ export class ServerlessBlogFront extends Construct {
     });
 
     // We are using CfnOutput to output the CloudFront URL to the console and the CloudFormation interface
-    new CfnOutput(this, 'WebsiteURL', { value: distribution.distributionDomainName });
-    new CfnOutput(this, 'BucketName', { value: frontBucket.bucketName });
+    new CfnOutput(this, 'Front Website Url', { value: distribution.distributionDomainName });
+    new CfnOutput(this, 'Front Website Bucket', { value: frontBucket.bucketName });
   }
 }

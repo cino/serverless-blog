@@ -1,9 +1,9 @@
 import { Template } from 'aws-cdk-lib/assertions';
 import { App } from 'aws-cdk-lib';
 import { Source } from 'aws-cdk-lib/aws-s3-deployment';
-import path = require('path');
-import { findByTestingTag, findOAICByComment } from './helpers';
-import { TestBlogStack } from './test-blog';
+import * as path from 'path';
+import { findByTestingTag, findOAICByComment } from './utils/helpers';
+import { TestBlogStack } from './utils/test-blog';
 
 describe('Front-end Stack', () => {
   test('Generates correctly with Route53/ACM/CloudFront', () => {
@@ -15,7 +15,7 @@ describe('Front-end Stack', () => {
 
       frontEnd: {
         alias: 'blog.example.com',
-        source: Source.asset(path.join(__dirname, 'html')),
+        source: Source.asset(path.join(__dirname, 'utils/html')),
       },
     });
     const template = Template.fromStack(stack);
@@ -44,7 +44,7 @@ describe('Front-end Stack', () => {
     const app = new App();
     const stack = new TestBlogStack(app, 'ServerlessBlog', {}, {
       frontEnd: {
-        source: Source.asset(path.join(__dirname, 'html')),
+        source: Source.asset(path.join(__dirname, 'utils/html')),
       },
     });
     const template = Template.fromStack(stack);

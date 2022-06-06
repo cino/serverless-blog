@@ -6,8 +6,35 @@ import { ServerlessBlogFront } from './infra/front-struct';
 import { IHostedZone } from 'aws-cdk-lib/aws-route53';
 
 export interface ServerlessBlogProps {
-  dns?: {
-    hostedZone?: IHostedZone,
+  hostedZone?: IHostedZone,
+
+  admin?: {
+    /**
+   * Alias to be configured on the CLoudFront distrubution, when not given the Distribution
+   * will be using the *.cloudfront.net domain.
+   *
+   * @default undefined
+   * @example
+   * admin.example.com | example.com
+   */
+    alias?: string,
+
+    /**
+     * Source code of the Admin Application which will be deployed towards the S3 Bucket.
+     *
+     * @example
+     * Source.asset(path.join(__dirname, '../app'), {
+     *   bundling: {
+     *     image: DockerImage.fromRegistry('node:16-alpine'),
+     *     command: [
+     *       'sh',
+     *       '-c',
+     *       `npm ci && npm run build && cp -a /asset-input/dist/* /asset-output`,
+     *     ],
+     *   },
+     * }),
+     */
+    source?: ISource,
   },
 
   /**
@@ -53,10 +80,17 @@ export class ServerlessBlog extends Construct {
 
     new ServerlessBlogApi(this, 'Api');
 
-    new ServerlessBlogAdmin(this, 'Admin');
+    new ServerlessBlogAdmin(this, 'Admin', {
+      hostedZone: serverlessProps?.hostedZone,
+      alias: serverlessProps.admin?.alias,
+      source: serverlessProps.admin?.source,
+      envVariables: {
+        test: 'test',
+      },
+    });
 
     new ServerlessBlogFront(this, 'Front', {
-      hostedZone: serverlessProps.dns?.hostedZone,
+      hostedZone: serverlessProps?.hostedZone,
 
       source: serverlessProps.frontEnd?.source,
       alias: serverlessProps.frontEnd?.alias,

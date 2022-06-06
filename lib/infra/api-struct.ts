@@ -3,10 +3,12 @@ import { AttributeType, BillingMode, Table } from 'aws-cdk-lib/aws-dynamodb';
 import { Construct } from 'constructs';
 
 export class ServerlessBlogApi extends Construct {
+  table: Table;
+
   constructor(scope: Construct, id: string) {
     super(scope, id);
 
-    new Table(this, 'posts', {
+    this.table = new Table(this, 'posts', {
       partitionKey: {
         name: 'PK',
         type: AttributeType.STRING,
@@ -20,6 +22,7 @@ export class ServerlessBlogApi extends Construct {
       // TODO: Modify to be specific to each environment.
       removalPolicy: RemovalPolicy.DESTROY,
     });
+
 
   }
 }
