@@ -1,8 +1,8 @@
 import { Construct } from 'constructs';
 import { ISource } from 'aws-cdk-lib/aws-s3-deployment';
-import { ServerlessBlogApi } from './infra/api-struct';
+import { ServerlessBlogApi } from './infra/backend-struct';
 import { ServerlessBlogAdmin } from './infra/admin-struct';
-import { ServerlessBlogFront } from './infra/front-struct';
+import { ServerlessBlogFront } from './infra/frontend-struct';
 import { IHostedZone } from 'aws-cdk-lib/aws-route53';
 
 export interface ServerlessBlogProps {

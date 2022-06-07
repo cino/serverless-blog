@@ -1,14 +1,14 @@
-import { RemovalPolicy } from 'aws-cdk-lib';
+import { RemovalPolicy, Tags } from 'aws-cdk-lib';
 import { AttributeType, BillingMode, Table } from 'aws-cdk-lib/aws-dynamodb';
 import { Construct } from 'constructs';
 
-export class ServerlessBlogApi extends Construct {
+export class BackEndDatabase extends Construct {
   table: Table;
 
   constructor(scope: Construct, id: string) {
     super(scope, id);
 
-    this.table = new Table(this, 'posts', {
+    this.table = new Table(this, 'content', {
       partitionKey: {
         name: 'PK',
         type: AttributeType.STRING,
@@ -19,10 +19,9 @@ export class ServerlessBlogApi extends Construct {
       },
       billingMode: BillingMode.PAY_PER_REQUEST,
 
-      // TODO: Modify to be specific to each environment.
+      // todo: Modify to be specific to each environment.
       removalPolicy: RemovalPolicy.DESTROY,
     });
-
-
+    Tags.of(this.table).add('cdkTesting', 'backendDynamoDb');
   }
 }
