@@ -1,13 +1,19 @@
 # Serverless Blog
 <p align="center">
+    <a href="https://github.com/cino/serverless-blog/actions?query=branch%3Amain">
+        <img src="https://github.com/github/cino/serverless-blog/workflows/main.yml/badge.svg?branch=main" alt="Build status">
+    </a>
+    <a href="LICENSE.md">
+        <img src="https://img.shields.io/packagist/l/axlon/laravel-postal-code-validation" alt="License">
+    </a>
 </p>
-
 Serverless Blog is an Open Source content platform which makes full benefit of AWS Serverless features.
-
-#
-
-
 _(name is subject to change)_
+
+## Installation
+
+// todo as well.
+
 
 ### Todo
 
@@ -33,4 +39,4 @@ _(name is subject to change)_
 
 ## License
 
-The Serverless Blog is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This open-source software is licenced under the [MIT license](./LICENSE).
