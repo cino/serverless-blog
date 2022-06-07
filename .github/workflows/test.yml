@@ -1,0 +1,77 @@
+name: Pull Request
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  lint-infra:
+    name: Lint Infra
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install
+        run: npm ci
+
+      - name: Lint
+        run: |
+          npm run lint
+  test-infra:
+    name: Test Infra
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install
+        run: npm ci
+
+      - name: Build & Test
+        run: |
+          npm run build
+          npm run test
+  lint-admin:
+    name: Lint Admin
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install
+        run: cd lib/admin && npm ci
+
+      - name: Build & Test
+        run: cd lib/admin && npm run lint
+  test-admin:
+    name: Test Admin
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install
+        run: cd lib/admin && npm ci
+
+      - name: Build & Test
+        run: cd lib/admin && npm run build
