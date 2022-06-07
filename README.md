@@ -3,7 +3,7 @@
     <a href="https://github.com/cino/serverless-blog/actions?query=branch%3Amain">
         <img src="https://github.com/cino/serverless-blog/workflows/test.yml/badge.svg?branch=main" alt="Build status">
     </a>
-    <a href="LICENSE.md">
+    <a href="LICENSE">
         <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License">
     </a>
 </p>
