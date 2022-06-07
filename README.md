@@ -1,10 +1,10 @@
 # Serverless Blog
 <p align="center">
     <a href="https://github.com/cino/serverless-blog/actions?query=branch%3Amain">
-        <img src="https://github.com/github/cino/serverless-blog/workflows/main.yml/badge.svg?branch=main" alt="Build status">
+        <img src="https://github.com/cino/serverless-blog/workflows/test.yml/badge.svg?branch=main" alt="Build status">
     </a>
     <a href="LICENSE.md">
-        <img src="https://img.shields.io/packagist/l/axlon/laravel-postal-code-validation" alt="License">
+        <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License">
     </a>
 </p>
 Serverless Blog is an Open Source content platform which makes full benefit of AWS Serverless features.
