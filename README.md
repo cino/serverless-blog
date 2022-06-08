@@ -1,6 +1,9 @@
 <p align="center">
-    <a href="https://github.com/cino/serverless-blog/actions?query=branch%3Amain">
-        <img src="https://github.com/cino/serverless-blog/workflows/test.yml/badge.svg?branch=main" alt="Build status">
+    <a href="https://github.com/cino/serverless-blog/blob/main/.github/workflows/test.yml">
+        <img src="https://github.com/cino/serverless-blog/actions/workflows/test.yml/badge.svg?branch=main" alt="Tests">
+    </a>
+    <a href="https://github.com/cino/serverless-blog/blob/main/.github/workflows/audit.yml">
+        <img src="https://github.com/cino/serverless-blog/actions/workflows/audit.yml/badge.svg?branch=main" alt="Audit">
     </a>
     <a href="LICENSE">
         <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License">
