@@ -8,8 +8,8 @@ on:
       - main
 
 jobs:
-  test-infra:
-    name: Test Infra
+  lint-infra:
+    name: Lint Infra
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -22,12 +22,11 @@ jobs:
       - name: Install
         run: npm ci
 
-      - name: Build & Test
+      - name: Lint
         run: |
-          npm run build
-          npm run test
-  test-admin:
-    name: Test Admin
+          npm run lint
+  lint-admin:
+    name: Lint Admin
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -41,4 +40,4 @@ jobs:
         run: cd lib/admin && npm ci
 
       - name: Build & Test
-        run: cd lib/admin && npm run build
+        run: cd lib/admin && npm run lint
