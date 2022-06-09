@@ -21,6 +21,9 @@ This is the first version of the architecture design which will be updated many,
 ![Architecture](docs/ServerlessBlog.drawio.svg)
 
 ## TODO
+- Mental notes:
+    - Think about esbuild process in this package.
+
 
 - Infra:
         - Documentation
