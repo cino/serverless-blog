@@ -3,7 +3,7 @@
     "target": "ES2018",
     "module": "commonjs",
     "lib": [
-      "es2018"
+      "es2018",
     ],
     "declaration": false,
     "strict": true,
@@ -20,12 +20,12 @@
     "experimentalDecorators": true,
     "strictPropertyInitialization": true,
     "typeRoots": [
-      "./node_modules/@types"
+      "./node_modules/@types",
     ],
-    "outDir": "dist"
+    "outDir": "dist",
   },
   "types": [
-    "node"
+    "node",
   ],
   "include": [
     "bin/**/*.ts",

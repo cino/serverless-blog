@@ -6,9 +6,7 @@ import { Construct } from 'constructs';
 import { join } from 'path';
 
 export interface LambdaFunctionProps {
-  readonly sourceLocation: string;
-  readonly sourceFile: string;
-  readonly tableName: string,
+  readonly sourceDirectory: string;
   readonly envVariables?: { [key: string]: string };
 }
 
@@ -35,10 +33,9 @@ export class LambdaFunction extends Construct {
     });
 
     this.function = new Function(this, 'Lambda', {
-      code: Code.fromAsset(join(__dirname, props.sourceLocation, props.sourceFile)),
-      handler: 'index.handler',
+      code: Code.fromAsset(join(__dirname, props.sourceDirectory)),
+      handler: 'main.handler',
       environment: {
-        TABLE_NAME: props.tableName,
         ...extraEnvVariables,
       },
       architecture: Architecture.ARM_64,

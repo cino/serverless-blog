@@ -5,7 +5,7 @@ import { BackEndDatabase } from './backend/dynamodb';
 import { BackEndRestApi } from './backend/rest-api';
 
 export class ServerlessBlogApi extends Construct {
-  // api: RestApi;
+  api: RestApi;
 
   table: Table;
 
@@ -14,6 +14,8 @@ export class ServerlessBlogApi extends Construct {
 
     // Absolute basics to make the application work.
     this.table = new BackEndDatabase(this, 'Database').table;
-    // this.api = new BackEndRestApi(this, 'RestApi').api;
+    this.api = new BackEndRestApi(this, 'RestApi', {
+      dynamoDb: this.table,
+    }).api;
   }
 }

@@ -4,7 +4,7 @@
   "description": "Backend/API & Infra for a Serverless Blog",
   "main": "lib/main.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "node ./esbuild.config.js",
     "lint": "eslint lib/**/*.ts test/**/*.ts",
     "watch": "tsc -w",
     "test": "jest --passWithNoTests",
