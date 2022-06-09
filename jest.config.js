@@ -1,3 +1,4 @@
+/** @type {import('@jest/types').Config.InitialOptions} */
 module.exports = {
   globals: {
     'ts-jest': {
@@ -22,7 +23,6 @@ module.exports = {
     global: {
       branches: 80,
       functions: 100,
-      statements: 100,
     },
   },
 };
