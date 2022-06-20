@@ -9,35 +9,35 @@ export default function createAuthorsApi(
   dynamoDb: Table,
 ): void {
   const listFunction = new LambdaFunction(scope, 'listAuthors', {
-    sourceDirectory: '../../../dist/authors/list',
+    sourceFile: '../../api/authors/list.ts',
     envVariables: {
       TABLE_NAME: dynamoDb.tableName,
     },
   }).function;
 
   const postFunction = new LambdaFunction(scope, 'postAuthors', {
-    sourceDirectory: '../../../dist/authors/post',
+    sourceFile: '../../api/authors/post.ts',
     envVariables: {
       TABLE_NAME: dynamoDb.tableName,
     },
   }).function;
 
   const getFunction = new LambdaFunction(scope, 'getAuthor', {
-    sourceDirectory: '../../../dist/authors/get',
+    sourceFile: '../../api/authors/get.ts',
     envVariables: {
       TABLE_NAME: dynamoDb.tableName,
     },
   }).function;
 
   const putFunction = new LambdaFunction(scope, 'putAuthor', {
-    sourceDirectory: '../../../dist/authors/put',
+    sourceFile: '../../api/authors/put.ts',
     envVariables: {
       TABLE_NAME: dynamoDb.tableName,
     },
   }).function;
 
   const deleteFunction = new LambdaFunction(scope, 'deleteAuthor', {
-    sourceDirectory: '../../../dist/authors/delete',
+    sourceFile: '../../api/authors/delete.ts',
     envVariables: {
       TABLE_NAME: dynamoDb.tableName,
     },

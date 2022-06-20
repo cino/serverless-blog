@@ -23,5 +23,7 @@ export class BackEndDatabase extends Construct {
       removalPolicy: RemovalPolicy.DESTROY,
     });
     Tags.of(this.table).add('cdkTesting', 'backendDynamoDb');
+
+    // set secondary indexes.
   }
 }

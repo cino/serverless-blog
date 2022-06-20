@@ -9,35 +9,35 @@ export default function createContentApi(
   dynamoDb: Table,
 ): void {
   const listFunction = new LambdaFunction(scope, 'listContent', {
-    sourceDirectory: '../../../dist/content/list',
+    sourceFile: '../../api/content/list.ts',
     envVariables: {
       TABLE_NAME: dynamoDb.tableName,
     },
   }).function;
 
   const postFunction = new LambdaFunction(scope, 'postContent', {
-    sourceDirectory: '../../../dist/content/post',
+    sourceFile: '../../api/content/post.ts',
     envVariables: {
       TABLE_NAME: dynamoDb.tableName,
     },
   }).function;
 
   const getFunction = new LambdaFunction(scope, 'getContent', {
-    sourceDirectory: '../../../dist/content/get',
+    sourceFile: '../../api/content/get.ts',
     envVariables: {
       TABLE_NAME: dynamoDb.tableName,
     },
   }).function;
 
   const putFunction = new LambdaFunction(scope, 'putContent', {
-    sourceDirectory: '../../../dist/content/put',
+    sourceFile: '../../api/content/put.ts',
     envVariables: {
       TABLE_NAME: dynamoDb.tableName,
     },
   }).function;
 
   const deleteFunction = new LambdaFunction(scope, 'deleteContent', {
-    sourceDirectory: '../../../dist/content/delete',
+    sourceFile: '../../api/content/delete.ts',
     envVariables: {
       TABLE_NAME: dynamoDb.tableName,
     },

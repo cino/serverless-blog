@@ -9,35 +9,35 @@ export default function createTagsApi(
   dynamoDb: Table,
 ): void {
   const listFunction = new LambdaFunction(scope, 'listTags', {
-    sourceDirectory: '../../../dist/tags/list',
+    sourceFile: '../../api/tags/list.ts',
     envVariables: {
       TABLE_NAME: dynamoDb.tableName,
     },
   }).function;
 
   const postFunction = new LambdaFunction(scope, 'postTags', {
-    sourceDirectory: '../../../dist/tags/post',
+    sourceFile: '../../api/tags/post.ts',
     envVariables: {
       TABLE_NAME: dynamoDb.tableName,
     },
   }).function;
 
   const getFunction = new LambdaFunction(scope, 'getTag', {
-    sourceDirectory: '../../../dist/tags/get',
+    sourceFile: '../../api/tags/get.ts',
     envVariables: {
       TABLE_NAME: dynamoDb.tableName,
     },
   }).function;
 
   const putFunction = new LambdaFunction(scope, 'putTag', {
-    sourceDirectory: '../../../dist/tags/put',
+    sourceFile: '../../api/tags/put.ts',
     envVariables: {
       TABLE_NAME: dynamoDb.tableName,
     },
   }).function;
 
   const deleteFunction = new LambdaFunction(scope, 'deleteTag', {
-    sourceDirectory: '../../../dist/tags/delete',
+    sourceFile: '../../api/tags/delete.ts',
     envVariables: {
       TABLE_NAME: dynamoDb.tableName,
     },

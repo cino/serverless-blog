@@ -9,35 +9,35 @@ export default function createSettingsApi(
   dynamoDb: Table,
 ): void {
   const listFunction = new LambdaFunction(scope, 'listSettings', {
-    sourceDirectory: '../../../dist/settings/list',
+    sourceFile: '../../api/settings/list.ts',
     envVariables: {
       TABLE_NAME: dynamoDb.tableName,
     },
   }).function;
 
   const postFunction = new LambdaFunction(scope, 'postSettings', {
-    sourceDirectory: '../../../dist/settings/post',
+    sourceFile: '../../api/settings/post.ts',
     envVariables: {
       TABLE_NAME: dynamoDb.tableName,
     },
   }).function;
 
   const getFunction = new LambdaFunction(scope, 'getSetting', {
-    sourceDirectory: '../../../dist/settings/get',
+    sourceFile: '../../api/settings/get.ts',
     envVariables: {
       TABLE_NAME: dynamoDb.tableName,
     },
   }).function;
 
   const putFunction = new LambdaFunction(scope, 'putSetting', {
-    sourceDirectory: '../../../dist/settings/put',
+    sourceFile: '../../api/settings/put.ts',
     envVariables: {
       TABLE_NAME: dynamoDb.tableName,
     },
   }).function;
 
   const deleteFunction = new LambdaFunction(scope, 'deleteSetting', {
-    sourceDirectory: '../../../dist/settings/delete',
+    sourceFile: '../../api/settings/delete.ts',
     envVariables: {
       TABLE_NAME: dynamoDb.tableName,
     },

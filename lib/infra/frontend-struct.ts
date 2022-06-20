@@ -39,7 +39,6 @@ export class ServerlessBlogFront extends Construct {
     let viewerCertificate: ViewerCertificate | undefined = undefined;
 
     if (props.hostedZone && props.alias) {
-
       const certificate = new DnsValidatedCertificate(this, 'FrontAppCertificate', {
         domainName: props.alias,
         hostedZone: props.hostedZone,

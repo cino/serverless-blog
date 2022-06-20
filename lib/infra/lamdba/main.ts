@@ -1,12 +1,13 @@
 import { Duration } from 'aws-cdk-lib';
 import { Effect, Policy, PolicyStatement, Role, ServicePrincipal } from 'aws-cdk-lib/aws-iam';
-import { Architecture, Code, Function, Runtime } from 'aws-cdk-lib/aws-lambda';
+import { Architecture, Function, Runtime } from 'aws-cdk-lib/aws-lambda';
+import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
 import { RetentionDays } from 'aws-cdk-lib/aws-logs';
 import { Construct } from 'constructs';
 import { join } from 'path';
 
 export interface LambdaFunctionProps {
-  readonly sourceDirectory: string;
+  readonly sourceFile: string;
   readonly envVariables?: { [key: string]: string };
 }
 
@@ -32,8 +33,9 @@ export class LambdaFunction extends Construct {
       assumedBy: new ServicePrincipal('lambda.amazonaws.com'),
     });
 
-    this.function = new Function(this, 'Lambda', {
-      code: Code.fromAsset(join(__dirname, props.sourceDirectory)),
+    this.function = new NodejsFunction(this, 'Lambda', {
+      // code: Code.fromAsset(join(__dirname, props.sourceDirectory)),
+      entry: join(__dirname, props.sourceFile),
       handler: 'main.handler',
       environment: {
         ...extraEnvVariables,

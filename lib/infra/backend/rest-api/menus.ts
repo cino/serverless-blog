@@ -9,35 +9,35 @@ export default function createMenuApi(
   dynamoDb: Table,
 ): void {
   const listFunction = new LambdaFunction(scope, 'listMenu', {
-    sourceDirectory: '../../../dist/menus/list',
+    sourceFile: '../../api/menus/list.ts',
     envVariables: {
       TABLE_NAME: dynamoDb.tableName,
     },
   }).function;
 
   const postFunction = new LambdaFunction(scope, 'postMenu', {
-    sourceDirectory: '../../../dist/menus/post',
+    sourceFile: '../../api/menus/post.ts',
     envVariables: {
       TABLE_NAME: dynamoDb.tableName,
     },
   }).function;
 
   const getFunction = new LambdaFunction(scope, 'getMenu', {
-    sourceDirectory: '../../../dist/menus/get',
+    sourceFile: '../../api/menus/get.ts',
     envVariables: {
       TABLE_NAME: dynamoDb.tableName,
     },
   }).function;
 
   const putFunction = new LambdaFunction(scope, 'putMenu', {
-    sourceDirectory: '../../../dist/menus/put',
+    sourceFile: '../../api/menus/put.ts',
     envVariables: {
       TABLE_NAME: dynamoDb.tableName,
     },
   }).function;
 
   const deleteFunction = new LambdaFunction(scope, 'deleteMenu', {
-    sourceDirectory: '../../../dist/menus/delete',
+    sourceFile: '../../api/menus/delete.ts',
     envVariables: {
       TABLE_NAME: dynamoDb.tableName,
     },

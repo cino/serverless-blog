@@ -97,3 +97,7 @@ export class ServerlessBlog extends Construct {
     });
   }
 }
+
+export * from './infra/backend-struct';
+export * from './infra/frontend-struct';
+export * from './infra/admin-struct';
